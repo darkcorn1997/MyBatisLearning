@@ -4,27 +4,27 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
     <mapper namespace="com.how2java.pojo">
-    <insert id="addCategory" parameterType="Category">
+    <insert id="addCategory">
         insert into how2java.category_ (id, name) values (#{id}, #{name})
     </insert>
 
-    <delete id="deleteCategory" parameterType="Category">
+    <delete id="deleteCategory">
         delete from how2java.category_ where id = #{id}
     </delete>
 
-    <select id="getCategory" parameterType="_int" resultType="Category">
+    <select id="getCategory" resultType="Category">
         select * from how2java.category_ where id = #{id}
     </select>
 
-    <select id="listCategoryByName" parameterType="String" resultType="Category">
+    <select id="listCategoryByName" resultType="Category">
         select * from how2java.category_ where name like concat('%',#{0},'%')
     </select>
 
-    <select id="listCategoryByIdAndName" parameterType="map" resultType="Category">
+    <select id="listCategoryByIdAndName" resultType="Category">
         select * from how2java.category_ where id=#{id} and name like concat('%',#{name},'%')
     </select>
 
-    <update id="updateCategory" parameterType="Category">
+    <update id="updateCategory">
         update how2java.category_ set name = #{name} where id = #{id}
     </update>
 

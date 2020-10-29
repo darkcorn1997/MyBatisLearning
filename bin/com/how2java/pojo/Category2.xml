@@ -8,7 +8,8 @@
         <id column="cid" property="id" />
         <result column="cname" property="name" />
 
-        <!--一对多，property: 指的是集合属性的值, ofType：指的是集合中元素的类型-->
+        <!-- 一对多的关系 -->
+        <!--property: 指的是集合属性的值, ofType：指的是集合中元素的类型-->
         <collection property="products" ofType="Product">
             <id column="pid" property="id" />
             <result column="pname" property="name" />
@@ -17,7 +18,7 @@
     </resultMap>
 
     <!--关联查询分类和产品表-->
-    <select id="listCategory" resultMap="categoryBean">
+    <select id="list2Category" resultMap="categoryBean">
         select c.*, p.* , c.id 'cid', p.id 'pid', c.name 'cname', p.name 'pname' from how2java.category_ c
         left join how2java.product_ p on c.id=p.cid
     </select>

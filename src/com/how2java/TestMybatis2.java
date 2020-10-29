@@ -20,13 +20,18 @@ public class TestMybatis2 {
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
         SqlSession session = sqlSessionFactory.openSession();
 
-        List<Category> cs = session.selectList("listCategory");
+        List<Category> cs = session.selectList("list2Category");
         for (Category c : cs) {
             System.out.println(c);
             List<Product> ps = c.getProducts();
             for (Product p : ps) {
                 System.out.println("\t"+p);
             }
+        }
+
+        List<Product> ps = session.selectList("list2Product");
+        for (Product p : ps) {
+            System.out.println(p+" 对应的分类是 \t "+ p.getCategory());
         }
 
         session.commit();
