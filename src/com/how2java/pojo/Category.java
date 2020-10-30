@@ -5,7 +5,7 @@ import java.util.List;
 public class Category {
     private int id;
     private String name;
-    List<Product> products;
+    List<Product> products; //javabean中的容器
 
     public int getId() {
         return id;

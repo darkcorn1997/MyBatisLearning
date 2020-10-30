@@ -2,7 +2,9 @@
 <!DOCTYPE mapper
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
- 
+
+
+<!--xml方式的基本CRUD查询-->
     <mapper namespace="com.how2java.pojo">
     <insert id="addCategory">
         insert into how2java.category_ (id, name) values (#{id}, #{name})

@@ -3,7 +3,7 @@
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/src/com/how2java/pojo/Category.xml" dialect="MySQL" />
     <file url="file://$PROJECT_DIR$/src/com/how2java/pojo/Category2.xml" dialect="MySQL" />
-    <file url="file://$PROJECT_DIR$/src/com/how2java/pojo/Product.xml" dialect="GenericSQL" />
+    <file url="file://$PROJECT_DIR$/src/com/how2java/pojo/Product2.xml" dialect="GenericSQL" />
     <file url="PROJECT" dialect="MySQL" />
   </component>
 </project>

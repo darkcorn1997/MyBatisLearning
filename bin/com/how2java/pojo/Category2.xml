@@ -3,13 +3,28 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
+        <!--
+            xml方式的连接查询，即select配置resultMap
+            这个id标示此javabean对象的唯一性，不是数据库的主键
+            column对应数据库的列名，property对应javabean的属性名
+        -->
 <mapper namespace="com.how2java.pojo">
     <resultMap id="categoryBean" type="Category">
         <id column="cid" property="id" />
-        <result column="cname" property="name" />
+        <result column="cname" property="name" /> <!-- result与id相比，对应普通属性 -->
 
-        <!-- 一对多的关系 -->
-        <!--property: 指的是集合属性的值, ofType：指的是集合中元素的类型-->
+        <!--
+            <constructor>  constructor对应javabean中的构造方法
+            <idArg column=""/> idArg 对应构造方法中的id参数
+            <arg column=""/>   arg 对应构造方法中的普通参数
+            </constructor>
+        -->
+
+        <!--
+            collection，对应javabean中的容器, 是实现一对多的关键
+            property 为javabean中容器对应字段名，column 为体现在数据库中列名
+            ofType 就是指定javabean中容器指定的类型
+        -->
         <collection property="products" ofType="Product">
             <id column="pid" property="id" />
             <result column="pname" property="name" />

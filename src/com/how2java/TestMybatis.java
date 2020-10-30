@@ -13,6 +13,8 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
  
 import com.how2java.pojo.Category;
 
+
+//<!--xml方式的基本CRUD查询 测试-->
 public class TestMybatis {
 
     public static void main(String[] args) throws IOException {
