@@ -25,7 +25,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         <mapper class="com.how2java.mapper.CategoryMapper" />
         <mapper class="com.how2java.mapper.CategoryMapper2" />
         <mapper class="com.how2java.mapper.ProductMapper2" />
-        <mapper class="com.how2java.mapper.CategoryMapper_dyn" />
+        <mapper class="com.how2java.mapper.CategoryMapperDyn" />
 
     </mappers>
 </configuration>

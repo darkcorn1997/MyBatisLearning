@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 /*注解方式的动态CRUD查询*/
-public interface CategoryMapper_dyn {
+public interface CategoryMapperDyn {
 
     @InsertProvider(type = CategoryDynaSqlProvider.class,method="add")
     public void add(Category category);

@@ -33,4 +33,11 @@
     <select id="listCategory" resultType="Category">
         select * from how2java.category_
     </select>
-    </mapper>
+
+    <select id="listCategoryByPage" resultType="Category">
+        select * from how2java.category_
+        <if test="start!=null and count!=null">
+            limit #{start},#{count}
+        </if>
+    </select>
+</mapper>

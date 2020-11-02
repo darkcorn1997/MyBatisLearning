@@ -28,13 +28,14 @@
             javaType 指定关联的类型
          -->
         <association property="category" javaType="Category">
-            <id column="cid" property="id"/>
+            <id column="id" property="id"/>
             <result column="cname" property="name"/>
         </association>
     </resultMap>
 
     <!-- 根据id查询Product, 关联将Orders查询出来 -->
     <select id="list2Product" resultMap="productBean">
-            select c.*, p.*, c.id 'cid', p.id 'pid', c.name 'cname', p.name 'pname' from how2java.category_ c left join how2java.product_ p on c.id = p.cid
+            select c.*, p.*, c.id 'cid', p.id 'pid', c.name 'cname', p.name 'pname' from how2java.category_ c
+            left join how2java.product_ p on c.id = p.cid
         </select>
 </mapper>

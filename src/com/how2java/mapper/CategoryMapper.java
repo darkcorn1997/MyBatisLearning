@@ -1,10 +1,7 @@
 package com.how2java.mapper;
 
 import com.how2java.pojo.Category;
-import org.apache.ibatis.annotations.Delete;
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Select;
-import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.annotations.*;
 
 import java.util.List;
 import java.util.Map;
@@ -29,4 +26,7 @@ public interface CategoryMapper {
 
     @Select("select * from how2java.category_")
     public List<Category> list();
+
+    @Select(" select * from category_ limit #{start},#{count}")
+    public List<Category> listByPage(@Param("start") int start, @Param("count")int count);
 }

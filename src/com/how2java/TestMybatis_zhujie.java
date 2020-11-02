@@ -6,7 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.how2java.mapper.CategoryMapper_dyn;
+import com.how2java.mapper.CategoryMapperDyn;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -24,7 +24,8 @@ public class TestMybatis_zhujie {
         InputStream inputStream = Resources.getResourceAsStream(resource);
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
         SqlSession session = sqlSessionFactory.openSession();
-        CategoryMapper_dyn mapper = session.getMapper(CategoryMapper_dyn.class);
+        CategoryMapper mapper = session.getMapper(CategoryMapper.class); /*注解方式的基本CRUD查询*/
+        CategoryMapperDyn mapperDyn = session.getMapper(CategoryMapperDyn.class); /*注解方式的动态CRUD查询*/
 
 //        add(mapper);
 //        delete(mapper);
@@ -32,6 +33,8 @@ public class TestMybatis_zhujie {
 //        update(mapper);
 //        update2(mapper);
         listAll(mapper);
+        listAllDyn(mapperDyn);
+        listByPage(mapper);  //分页查询
 
         session.commit();
         session.close();
@@ -71,10 +74,24 @@ public class TestMybatis_zhujie {
         listAll(mapper);
     }
 
-    private static void listAll(CategoryMapper_dyn mapper) {
+    private static void listAll(CategoryMapper mapper) {
         List<Category> cs = mapper.list();
         for (Category c : cs) {
-            System.out.println(c.getName());
+            System.out.println(c);
+        }
+    }
+
+    private static void listByPage(CategoryMapper mapper) {
+        List<Category> cs = mapper.listByPage(0,2);
+        for (Category c:cs) {
+            System.out.println(c);
+        }
+    }
+
+    private static void listAllDyn(CategoryMapperDyn mapperDyn) {
+        List<Category> cs = mapperDyn.list();
+        for (Category c:cs) {
+            System.out.println(c);
         }
     }
 }
