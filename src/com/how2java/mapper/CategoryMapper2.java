@@ -6,8 +6,8 @@ import org.apache.ibatis.annotations.*;
 import java.util.List;
 
 
-/*注解方式的连接查询 一对N*/
 public interface CategoryMapper2 {
+    /*注解方式的连接查询 一对N*/
     @Select("select * from how2java.category_")
     @Results({
             @Result(property = "id", column = "id"),
@@ -17,7 +17,8 @@ public interface CategoryMapper2 {
     })
     public List<Category> list();
 
+    /*注解方式的连接查询 N对一*/
     @Select("select * from how2java.category_ where id = #{id}")
-    public Category get
+    public Category listByProduct(int id);
 }
 
