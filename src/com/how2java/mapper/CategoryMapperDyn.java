@@ -14,20 +14,20 @@ import java.util.Map;
 public interface CategoryMapperDyn {
 
     @InsertProvider(type = CategoryDynaSqlProvider.class,method="add")
-    public void add(Category category);
+    void add(Category category);
 
     @DeleteProvider(type=CategoryDynaSqlProvider.class,method="delete")
-    public void delete(int id);
+    void delete(int id);
 
     @SelectProvider(type=CategoryDynaSqlProvider.class,method="get")
-    public Category get(int id);
+    Category get(int id);
 
     @UpdateProvider(type=CategoryDynaSqlProvider.class,method="update")
-    public void update(Category category);
+    void update(Category category);
 
     @UpdateProvider(type = CategoryDynaSqlProvider.class,method="update")
-    public void update2(Map<String,Object> map);
+    void update2(Map<String,Object> map);
 
     @SelectProvider(type=CategoryDynaSqlProvider.class,method="list")
-    public List<Category> list();
+    List<Category> list();
 }

@@ -12,12 +12,12 @@ import java.util.List;
 public interface ProductMapper2 {
     /*注解方式的连接查询 一对N*/
     @Select("select * from how2java.product_ where cid = #{cid}")
-    public List<Product> listByCategory(int cid);
+    List<Product> listByCategory(int cid);
 
     /*注解方式的连接查询 N对一*/
     @Select("select * from how2java.product_")
     @Results({
             @Result(property = "category", column = "cid", one = @One(select = "com.how2java.mapper.CategoryMapper2.listByProduct"))
     })
-    public List<Product> list();
+    List<Product> list();
 }

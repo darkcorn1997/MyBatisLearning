@@ -15,10 +15,10 @@ public interface CategoryMapper2 {
             @Result(property = "products", javaType = List.class, column = "id", many = @Many(select =
                     "com.how2java.mapper.ProductMapper2.listByCategory"))
     })
-    public List<Category> list();
+    List<Category> list();
 
     /*注解方式的连接查询 N对一*/
     @Select("select * from how2java.category_ where id = #{id}")
-    public Category listByProduct(int id);
+    Category listByProduct(int id);
 }
 
