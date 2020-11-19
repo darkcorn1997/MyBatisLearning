@@ -10,7 +10,7 @@
         -->
 <mapper namespace="com.how2java.pojo">
     <resultMap id="categoryBean" type="Category">
-        <id column="id" property="id" />
+        <id column="cid" property="id" />
         <result column="cname" property="name" /> <!-- result与id相比，对应普通属性 -->
 
         <!--
