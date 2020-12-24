@@ -11,7 +11,7 @@
 <mapper namespace="com.how2java.pojo">
     <resultMap id="productBean" type="Product">
         <id column="pid" property="id" />
-        <result column="pname" property="name" /> <!-- result与id相比，对应普通属性 -->
+        <result column="pname" property="name" /> <!-- result与id相比，id映射主键属性，result映射非主键属性 -->
         <result column="price" property="price" />
 
         <!--
